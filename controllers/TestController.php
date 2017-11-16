@@ -1,0 +1,19 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2017/11/16 0016
+ * Time: 下午 5:59
+ */
+
+namespace app\controllers;
+
+
+use yii\web\Controller;
+
+class TestController  extends Controller
+{
+
+
+
+}
