@@ -9,7 +9,6 @@
 
 namespace app\models;
 
-
 use yii\db\ActiveRecord;
 
 /**
@@ -43,3 +42,4 @@ class Emp extends ActiveRecord
 
     }
 }
+
