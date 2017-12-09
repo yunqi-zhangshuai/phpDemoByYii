@@ -13,7 +13,18 @@ $config = [
             'cookieValidationKey' => 'O_irDsQX_Vl448IGciz1MzIBUEq4v1tR',
         ],
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            //'class' => 'yii\caching\FileCache',
+            'class' => 'yii\caching\MemCache',
+            'username' => '',
+            'password' => '',
+            'useMemcached' => true,
+            'servers' => [
+                [
+                    'host' => 'localhost',
+                    'port' => 11211,
+                    //'weight' => 60,
+                ]
+            ],
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -21,6 +32,17 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        ##美化url
+        'urlManager' => [
+            #开启美化url功能
+            'enablePrettyUrl' => true,
+            #是否展示入口文件脚本 index.php
+            'showScriptName' => false,
+            #文件后缀
+            'suffix'          =>'.html',
+            'rules' => [
+            ],
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -37,6 +59,13 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        //redis配置
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '127.0.0.1',
+            'port' => 6379,
+            'database' => 0,
         ],
         'db' => $db,
         /*

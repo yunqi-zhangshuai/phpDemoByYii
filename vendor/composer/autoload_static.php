@@ -20,6 +20,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             'yii\\swiftmailer\\' => 16,
             'yii\\redis\\' => 10,
+            'yii\\httpclient\\' => 15,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -90,6 +91,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'yii\\redis\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-redis',
+        ),
+        'yii\\httpclient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-httpclient',
         ),
         'yii\\gii\\' => 
         array (
@@ -217,6 +222,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
         'H' => 
