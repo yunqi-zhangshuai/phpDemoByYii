@@ -40,7 +40,7 @@ $config = [
             #是否展示入口文件脚本 index.php
             'showScriptName' => false,
             #文件后缀
-            'suffix'          =>'.html',
+            //'suffix'          =>'.html',
             'rules' => [
             ],
         ],
@@ -67,15 +67,8 @@ $config = [
             'port' => 6379,
             'database' => 0,
         ],
+
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
     ],
     'params' => $params,
 ];
