@@ -17,8 +17,8 @@ class TestController extends Controller
 {
     public function actionIndex()
     {
-
-
+      \Yii::$app->getRequest()->post();
+      request()->post('aa');
     }
 
 

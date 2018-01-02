@@ -13,6 +13,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
+        'd78f14d28e652bfd3ec214223c96ad70' => __DIR__ . '/../..' . '/common/helpers/GlobalFunctions.php',
     );
 
     public static $prefixLengthsPsr4 = array (

@@ -59,5 +59,10 @@
                 "config/web.php"
             ]
         }
+    },
+    "autoload": {
+        "files": [
+            "common/helpers/GlobalFunctions.php"
+        ]
     }
 }
