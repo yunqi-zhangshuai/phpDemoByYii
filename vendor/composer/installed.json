@@ -587,7 +587,7 @@
         "version_normalized": "1.9.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/endroid/QrCode.git",
+            "url": "https://github.com/endroid/qr-code.git",
             "reference": "c9644bec2a9cc9318e98d1437de3c628dcd1ef93"
         },
         "dist": {
@@ -1842,17 +1842,17 @@
     },
     {
         "name": "sebastian/comparator",
-        "version": "2.1.0",
-        "version_normalized": "2.1.0.0",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/comparator.git",
-            "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
+            "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/comparator/1174d9018191e93cb9d719edec01257fc05f8158.zip",
-            "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
+            "url": "https://files.phpcomposer.com/files/sebastianbergmann/comparator/b11c729f95109b56a0fe9650c6a63a0fcd8c439f.zip",
+            "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
             "shasum": ""
         },
         "require": {
@@ -1863,7 +1863,7 @@
         "require-dev": {
             "phpunit/phpunit": "^6.4"
         },
-        "time": "2017-11-03T07:16:52+00:00",
+        "time": "2017-12-22T14:50:35+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
