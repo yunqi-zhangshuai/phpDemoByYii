@@ -17,9 +17,22 @@ class TestController extends Controller
 {
     public function actionIndex()
     {
-      \Yii::$app->getRequest()->post();
-      request()->post('aa');
+        $cacke = \Yii::$app->cache->set('index','aaa',26);
+        var_dump($cacke);
+        var_dump( \Yii::$app->cache->getOrSet('index','444'));die;
+
     }
 
 
+    public static function getMillisecond()
+    {
+        list($t1, $t2) = explode(' ', microtime());
+        return (float)sprintf('%.0f', (floatval($t1) + floatval($t2)) * 1000);
+    }
+
+    public function actionFanshe(){
+        $fs = new \Reflection();
+    }
 }
+
+

@@ -15,8 +15,8 @@ $config = [
         'cache' => [
             //'class' => 'yii\caching\FileCache',
             'class' => 'yii\caching\MemCache',
-            'username' => '',
-            'password' => '',
+//            'username' => '',
+//            'password' => '',
             'useMemcached' => true,
             'servers' => [
                 [
