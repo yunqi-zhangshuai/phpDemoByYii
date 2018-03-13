@@ -1,5 +1,3 @@
-<button class="layui-btn layui-btn">我是按钮</button>
-
 
 
 <script>
