@@ -1,4 +1,5 @@
-
+<?php
+?>
 
 <script>
     var layer, layui_form, layui_table;

@@ -10,9 +10,17 @@ namespace app\common;
 
 
 
-class Redis extends \yii\redis\Connection
+class Redis extends \Redis
 {
 
+   public function __construct()
+   {
+       $this->connect('localhost');
+   }
 
+   public function __destruct()
+   {
+       $this->close();
+   }
 
 }

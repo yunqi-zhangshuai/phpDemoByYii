@@ -69,6 +69,7 @@ $config = [
         ],
 
         'db' => $db,
+        'db_hd' => require(__DIR__ . '/db_hd.php')
     ],
     'params' => $params,
     'modules' => require(__DIR__ . '/modules.php'),
