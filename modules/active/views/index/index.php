@@ -1,9 +1,14 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: zhangshuai
- * Date: 18-3-4
- * Time: 上午10:37
- */
+<button class="layui-btn layui-btn">我是按钮</button>
 
-echo 123;
+
+
+<script>
+    var layer, layui_form, layui_table;
+    layui.use(['layer', 'form', 'table'], function () {
+        layer = layui.layer;
+        layui_form = layui.form;
+        layui_table = layui.table;
+    });
+
+
+</script>
