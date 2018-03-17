@@ -15,6 +15,7 @@ use yii\helpers\ArrayHelper;
  * @property string $video_url
  * @property string $photo_url
  * @property integer $num
+ * @property string $video_photo
  */
 class Hall extends \yii\db\ActiveRecord
 {

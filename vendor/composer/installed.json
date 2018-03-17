@@ -442,17 +442,17 @@
     },
     {
         "name": "codeception/phpunit-wrapper",
-        "version": "6.0.5",
-        "version_normalized": "6.0.5.0",
+        "version": "6.0.8",
+        "version_normalized": "6.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Codeception/phpunit-wrapper.git",
-            "reference": "44e2100c300413a6b40cf8874ad402695010f443"
+            "reference": "e18f3ea1f841bfd2cecaf6e183e584127b9d467b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/Codeception/phpunit-wrapper/44e2100c300413a6b40cf8874ad402695010f443.zip",
-            "reference": "44e2100c300413a6b40cf8874ad402695010f443",
+            "url": "https://files.phpcomposer.com/files/Codeception/phpunit-wrapper/e18f3ea1f841bfd2cecaf6e183e584127b9d467b.zip",
+            "reference": "e18f3ea1f841bfd2cecaf6e183e584127b9d467b",
             "shasum": ""
         },
         "require": {
@@ -461,7 +461,14 @@
             "sebastian/comparator": ">1.1 <3.0",
             "sebastian/diff": ">=1.4 <4.0"
         },
-        "time": "2018-02-19T13:24:40+00:00",
+        "replace": {
+            "codeception/phpunit-wrapper": "*"
+        },
+        "require-dev": {
+            "codeception/specify": "*",
+            "vlucas/phpdotenv": "^2.4"
+        },
+        "time": "2018-03-16T10:17:47+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

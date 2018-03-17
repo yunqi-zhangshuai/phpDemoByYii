@@ -32,12 +32,6 @@ class BaseController extends Controller
      */
     public $login_key;
 
-    /**
-     * @var Redis;
-     */
-    public $redis;
-
-
 
     /**
      * 设置登录信息

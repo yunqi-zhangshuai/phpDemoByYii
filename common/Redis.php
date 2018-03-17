@@ -8,19 +8,11 @@
 
 namespace app\common;
 
+use yii\redis\Cache;
 
-
-class Redis extends \Redis
+class Redis extends Cache
 {
 
-   public function __construct()
-   {
-       $this->connect('localhost');
-   }
 
-   public function __destruct()
-   {
-       $this->close();
-   }
 
 }

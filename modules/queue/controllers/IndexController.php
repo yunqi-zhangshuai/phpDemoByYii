@@ -17,11 +17,10 @@ class IndexController extends BaseController
 {
     public $layout = false;
 
-    
+
     public function init()
     {
         $this->login_key = 'queue_vote';
-        $this->redis = new Redis();
         parent::init();
     }
 
@@ -31,8 +30,8 @@ class IndexController extends BaseController
      */
     public function actionIndex()
     {
-
-       $get = \Yii::$app->request->get();
+        \redis()->redis->
+        $get = \Yii::$app->request->get();
         //构建一个虚拟用户身份
 
         $user_arr = [
@@ -145,7 +144,8 @@ class IndexController extends BaseController
 
         $request = \Yii::$app->getRequest();
         $id = $request->Post('id');
-        if (!($login_arr = $this->loginInfo($this->login_key)) || !is_string($id) || !$request->isAjax || !$request->isPost ) {
+        if (!($login_arr = $this->loginInfo($this->login_key)) || !is_string($id)
+              || !$request->isAjax || !$request->isPost ) {
             return Json::encode(['msg' => '非法请求', 'state' => 0]);
         }
         //判断当前是否有此营业厅
@@ -163,6 +163,8 @@ class IndexController extends BaseController
                 return Json::encode(['msg' => '投票失败', 'state' => 2]);
             }
         }
+
+        $this->redis->set('aa',34,300);
 
 
 
@@ -183,6 +185,11 @@ class IndexController extends BaseController
                 return Json::encode(['msg' => '今天投票次数已经够了!', 'state' => 3]);
             }
         }
+
+
+
+
+
         //记录投票关系
         if (!(Vote::addVoteRelation($id,$user_obj->id))){
             return Json::encode(['msg' => '投票失败', 'state' => 2]);
