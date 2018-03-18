@@ -7,7 +7,6 @@ use app\modules\queue\models\Hall;
 use app\modules\queue\models\User;
 use app\modules\queue\models\Vote;
 use yii\helpers\Json;
-use app\common\Redis;
 /**
  * 投票demo
  * Class IndexController
@@ -30,7 +29,6 @@ class IndexController extends BaseController
      */
     public function actionIndex()
     {
-        \redis()->redis->
         $get = \Yii::$app->request->get();
         //构建一个虚拟用户身份
 
@@ -164,7 +162,6 @@ class IndexController extends BaseController
             }
         }
 
-        $this->redis->set('aa',34,300);
 
 
 

@@ -11,7 +11,6 @@ namespace app\controllers;
 
 use yii\base\Exception;
 use yii\web\Controller;
-use app\common\Redis;
 
 /**
  * 基础控制器

@@ -77,7 +77,7 @@ class Hall extends \yii\db\ActiveRecord
     {
         /*photo_url,hall_area,hall_id*/
         $data = self::find()->select('photo_url,hall_area,hall_id,hall_name')
-            ->orderBy('id ASC')
+            ->orderBy('id' .SORT_DESC)
             ->asArray()
             ->all();
         //根据地区分组数据
