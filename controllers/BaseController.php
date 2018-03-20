@@ -48,10 +48,10 @@ class BaseController extends Controller
 
     /**
      * 获取缓存信息
-     * @param $key
+     * @param $key string
      * @return mixed
      */
-    public function loginInfo($key)
+    public function loginInfo(string $key)
     {
         return \Yii::$app->session->get($key);
     }

@@ -6,7 +6,10 @@ use app\controllers\BaseController;
 use app\modules\queue\models\Hall;
 use app\modules\queue\models\User;
 use app\modules\queue\models\Vote;
+use yii\base\Exception;
 use yii\helpers\Json;
+use yii\redis\Cache;
+
 /**
  * 投票demo
  * Class IndexController
@@ -31,7 +34,9 @@ class IndexController extends BaseController
     {
         $get = \Yii::$app->request->get();
         //构建一个虚拟用户身份
-
+        if(empty($get['username'])) {
+          throw  new Exception('username不能为空!');
+        }
         $user_arr = [
             'username' => $get['username'],
         ];
@@ -161,8 +166,10 @@ class IndexController extends BaseController
                 return Json::encode(['msg' => '投票失败', 'state' => 2]);
             }
         }
+        $str = '0 aaa 2 bbb 3 ccc 2 ddd';
 
-
+        $redis = (new Cache())->redis;
+        $redis->zadd('index',0,'aaa',1,'bbb');
 
 
         //判断当前用户投票次数
