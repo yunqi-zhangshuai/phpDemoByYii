@@ -56,6 +56,17 @@ class IndexController extends BaseController
                 }
             }
         }
+        if(!redis()->exists('hall')) {
+            $arr = Hall::find()->select('hall_id,num')->asArray()->all();
+            $res_arr = [];
+            foreach ($arr as $value) {
+                $res_arr[] = $value['num'];
+                $res_arr[] = $value['hall_id'];
+            }
+            redis()->zadd('hall',...$res_arr);
+        }
+
+
         $this->login($this->login_key,['id' => $login->id, 'openid' => $login->getAttribute('openid')]);
         return $this->render('index');
 

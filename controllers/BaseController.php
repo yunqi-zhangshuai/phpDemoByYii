@@ -47,7 +47,7 @@ class BaseController extends Controller
     }
 
     /**
-     * 获取缓存信息
+     * 获取登录缓存信息
      * @param $key string
      * @return mixed
      */
