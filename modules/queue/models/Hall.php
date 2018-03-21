@@ -63,10 +63,32 @@ class Hall extends \yii\db\ActiveRecord
      */
     static function getPhotos()
     {
-        return self::find()->select('hall_id,photo_url,num')
+        /*return self::find()->select('hall_id,photo_url,num')
             ->orderBy(['num' => SORT_DESC])
             ->asArray()
-            ->all();
+            ->all();*/
+        if(!($arr = redis(0)->get('aaa')) ) {
+            $arr =  self::find()->select('hall_id,photo_url')
+                                ->asArray()
+                                ->all();
+            redis(0)->set('aaa',$arr,300);
+        };
+
+        $result = redis()->zrevrange('hall',0,-1,'withscores');
+        $result = sortSetArr($result);
+
+        $arr = ArrayHelper::index($arr,'hall_id');
+        array_walk($result,function (&$value,$key)use($arr){
+            $value= (array)$value;
+
+            $value['num'] = $value[0];
+            $value['hall_id'] = $arr[$key]['hall_id'];
+            $value['photo_url'] = $arr[$key]['photo_url'];
+            unset($value[0]);
+        });
+        $result = array_values($result);
+        return $result;
+
     }
 
     /**
@@ -77,7 +99,7 @@ class Hall extends \yii\db\ActiveRecord
     {
         /*photo_url,hall_area,hall_id*/
         $data = self::find()->select('photo_url,hall_area,hall_id,hall_name')
-            ->orderBy('id' .SORT_DESC)
+            ->orderBy(['id' => SORT_DESC])
             ->asArray()
             ->all();
         //根据地区分组数据
@@ -98,7 +120,7 @@ class Hall extends \yii\db\ActiveRecord
         //重建索引
         $data = array_values($data);
         $key = 'queue_getPhotosByAddress2017120600462300';
-        Yii::$app->cache->set($key,json_encode($data),3600 * 2);
+        Yii::$app->cache->set($key,$data,3600 * 2);
         return  $data;
 
     }

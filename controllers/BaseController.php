@@ -56,5 +56,25 @@ class BaseController extends Controller
         return \Yii::$app->session->get($key);
     }
 
+    /**
+     * 缓存加锁
+     * @param string $key
+     * @return bool
+     */
+    public function lock(string  $key)
+    {
+        return redis(0)->add($key,'locked',300);
+    }
+
+    /**
+     * 删除锁机制
+     * @param string $key
+     * @return bool
+     */
+    public function unlock( string $key)
+    {
+        return redis(0)->delete($key);
+    }
+
 
 }

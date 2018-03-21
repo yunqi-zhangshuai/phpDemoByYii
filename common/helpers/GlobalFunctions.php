@@ -164,8 +164,37 @@ if (!function_exists('pr')) {
 
 
 if (!function_exists('redis')) {
-
-    function redis(){
-        return  new yii\redis\Cache();
+    /**
+     * 返回redis实例
+     * @param int $type 0时返回 cache
+     * @return  \yii\redis\Cache|\yii\redis\Connection
+     */
+    function redis($type = 1)
+    {
+        if ($type !== 1) {
+            return new yii\redis\Cache();
+        }
+        return (new yii\redis\Cache())->redis;
     }
+}
+
+if(!function_exists('sortSetArr')) {
+    /**
+     * 对redis 有序集合的数据重建数组
+     * @param array $arr
+     * @return array 重建的数组
+     */
+   function sortSetArr(array $arr)
+   {
+       $length = count($arr);
+       $result = [];
+       for ($i=0;$i<$length;$i++){
+           if($i % 2 !== 0) {
+              continue;
+           }
+           $result[$arr[$i]] = $arr[$i+1];
+
+       }
+       return $result;
+   }
 }

@@ -8,8 +8,6 @@ use app\modules\queue\models\User;
 use app\modules\queue\models\Vote;
 use yii\base\Exception;
 use yii\helpers\Json;
-use yii\redis\Cache;
-
 /**
  * 投票demo
  * Class IndexController
@@ -81,8 +79,6 @@ class IndexController extends BaseController
             $key = 'queue_getPhotosByAddress2017120600462300';
             if( !($photos = \Yii::$app->cache->get($key))){
                 $photos = Hall::getPhotosByAddress();
-            }else{
-                $photos  = Json::decode($photos,true);
             }
         } else {
             $photos = Hall::getPhotos();
@@ -166,11 +162,6 @@ class IndexController extends BaseController
                 return Json::encode(['msg' => '投票失败', 'state' => 2]);
             }
         }
-        $str = '0 aaa 2 bbb 3 ccc 2 ddd';
-
-        $redis = (new Cache())->redis;
-        $redis->zadd('index',0,'aaa',1,'bbb');
-
 
         //判断当前用户投票次数
         if (!isset($is_new)) {
@@ -190,20 +181,24 @@ class IndexController extends BaseController
             }
         }
 
-
-
-
-
+        //投票前加锁
+        if(!$this->lock('vote')
+                //redis内部数据加1
+            || !($num = redis()->zincrby('hall',1,$id)) ) {
+           return Json::encode(['msg' => '投票失败', 'state' => 2]);
+        }
+        //记录redis投票数量
         //记录投票关系
         if (!(Vote::addVoteRelation($id,$user_obj->id))){
             return Json::encode(['msg' => '投票失败', 'state' => 2]);
         }
 
         //添加营业厅投票数量
-        $hall->num += 1;
+        $hall->num = $num;
         if (!$hall->save()){
             return Json::encode(['msg' => '投票失败', 'state' => 2]);
         }
+        $this->unlock('vote');
         return Json::encode(['msg' => '投票成功', 'state' => 1]);
     }
 
