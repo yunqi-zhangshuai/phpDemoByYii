@@ -530,16 +530,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.12",
+            "version": "2.0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d"
+                "reference": "8fe3b864f742eae45e888bd5f4719b47d109bfb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/70acbecc75cb26b6cd66d16be0b06e4b73db190d",
-                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d",
+                "url": "https://files.phpcomposer.com/files/yiisoft/yii2-framework/8fe3b864f742eae45e888bd5f4719b47d109bfb0.zip",
+                "reference": "8fe3b864f742eae45e888bd5f4719b47d109bfb0",
                 "shasum": ""
             },
             "require": {
@@ -626,7 +626,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-06-05T14:33:41+00:00"
+            "time": "2018-03-20T12:32:27+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
