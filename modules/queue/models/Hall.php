@@ -80,7 +80,6 @@ class Hall extends \yii\db\ActiveRecord
         $arr = ArrayHelper::index($arr,'hall_id');
         array_walk($result,function (&$value,$key)use($arr){
             $value= (array)$value;
-
             $value['num'] = $value[0];
             $value['hall_id'] = $arr[$key]['hall_id'];
             $value['photo_url'] = $arr[$key]['photo_url'];
