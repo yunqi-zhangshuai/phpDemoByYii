@@ -1,14 +1,8 @@
+<?php
+use yii\helpers\Url;
+?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
 <style type="text/css">
     .only-box {
         width: 736px;
@@ -18,6 +12,7 @@
         display: flex;
         flex-direction: column;
         margin: 100px auto;
+        position: relative;
     }
 
     .title-box {
@@ -42,8 +37,17 @@
         line-height: 78px;
         margin-left: 1%;
     }
-</style>
 
+    .submit {
+        width: 80px;
+        height: 32px;
+        position: absolute;
+        right: 15px;
+        display: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
 <div class="only-box ">
     <div class="title-box"><p class="title-font">小明</p></div>
     <div class="message_box">消息框</div>
@@ -51,20 +55,29 @@
         <textarea class="layui-textarea layui-hide" name="description" lay-verify="description" id="edit_box">
 
         </textarea>
+        <button class="layui-btn layui-btn-normal layui-btn-sm submit">ENTER</button>
     </div>
-    <button class=""></button>
 </div>
 
 <script>
 
     layui.use(['layedit'], function () {
+        var lauiedit = layui.layedit;
+        edit_obj = lauiedit.build('edit_box', {height: 'auto'});
+        $('.submit').show();
 
-        layui.layedit.build('edit_box', {height: 'auto'});
+
+
+        $('.submit').on('click',function () {
+          var content = lauiedit.getContent(edit_obj),
+              socket  = new WebSocket('<?= Url::to(['message/websocket'],true)?>');
+              //
+              socket.onopen(Event,function () {
+
+              })
+
+        })
 
     });
 
 </script>
-</body>
-</html>
-
-

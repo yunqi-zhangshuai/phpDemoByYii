@@ -10,6 +10,7 @@ namespace app\modules\queue\controllers;
 
 
 use app\controllers\BaseController;
+use yii\validators\Validator;
 
 /**
  * 消息队列demo
@@ -19,10 +20,10 @@ use app\controllers\BaseController;
 class MessageController extends BaseController
 {
 
-     public function actionIndex()
-      {
-          return $this->render('message');
+    public function actionIndex()
+    {
+        return $this->render('message');
 
-      }
+    }
 
 }
