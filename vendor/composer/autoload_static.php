@@ -65,8 +65,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'PhpOffice\\PhpSpreadsheet\\' => 25,
         ),
         'G' => 
         array (
@@ -220,6 +222,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             0 => __DIR__ . '/..' . '/symfony/browser-kit',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -227,6 +233,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'PhpOffice\\PhpSpreadsheet\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
