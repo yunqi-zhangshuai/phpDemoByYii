@@ -1715,17 +1715,17 @@
     },
     {
         "name": "phpunit/phpunit",
-        "version": "6.5.7",
-        "version_normalized": "6.5.7.0",
+        "version": "6.5.8",
+        "version_normalized": "6.5.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "6bd77b57707c236833d2b57b968e403df060c9d9"
+            "reference": "4f21a3c6b97c42952fd5c2837bb354ec0199b97b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit/6bd77b57707c236833d2b57b968e403df060c9d9.zip",
-            "reference": "6bd77b57707c236833d2b57b968e403df060c9d9",
+            "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit/4f21a3c6b97c42952fd5c2837bb354ec0199b97b.zip",
+            "reference": "4f21a3c6b97c42952fd5c2837bb354ec0199b97b",
             "shasum": ""
         },
         "require": {
@@ -1764,7 +1764,7 @@
             "ext-xdebug": "*",
             "phpunit/php-invoker": "^1.1"
         },
-        "time": "2018-02-26T07:01:09+00:00",
+        "time": "2018-04-10T11:38:34+00:00",
         "bin": [
             "phpunit"
         ],
