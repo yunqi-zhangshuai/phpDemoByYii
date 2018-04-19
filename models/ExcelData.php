@@ -33,9 +33,12 @@ class ExcelData extends IOFactory
 
     public static $filter;
 
-    public  function __construct($star,$end)
+    public  function __construct($star = null,$end=null)
     {
-        self::$filter = new ExcelFilter($star,$end);
+        if($star && $end) {
+            self::$filter = new ExcelFilter($star,$end);
+
+        }
     }
 
     /**
