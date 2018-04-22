@@ -193,7 +193,6 @@ if(!function_exists('sortSetArr')) {
               continue;
            }
            $result[$arr[$i]] = $arr[$i+1];
-
        }
        return $result;
    }
