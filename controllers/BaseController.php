@@ -12,11 +12,7 @@ namespace app\controllers;
 use yii\base\Exception;
 use yii\web\Controller;
 
-/**
- * 基础控制器
- * Class BaseController
- * @package app\controllers
- */
+
 class BaseController extends Controller
 {
     /**
@@ -31,7 +27,6 @@ class BaseController extends Controller
      */
     public $login_key;
 
-
     /**
      * 设置登录信息
      * @param string $key
@@ -40,7 +35,7 @@ class BaseController extends Controller
      */
     public function login(string $key, array $value)
     {
-        if (!$key || !is_array($value)) {
+        if (!$key) {
             throw new Exception('key或value值不合法!');
         }
         return \Yii::$app->session->set($key, $value);
@@ -59,7 +54,7 @@ class BaseController extends Controller
     /**
      * 缓存加锁
      * @param string $key
-     * @return bool
+     * @return boolean|null
      */
     public function lock(string  $key)
     {
@@ -69,7 +64,7 @@ class BaseController extends Controller
     /**
      * 删除锁机制
      * @param string $key
-     * @return bool
+     * @return bool|null
      */
     public function unlock( string $key)
     {
