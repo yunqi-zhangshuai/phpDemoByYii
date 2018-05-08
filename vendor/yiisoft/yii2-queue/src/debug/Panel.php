@@ -11,7 +11,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\base\ViewContextInterface;
 use yii\helpers\VarDumper;
-use yii\queue\Job;
+use yii\queue\JobInterface;
 use yii\queue\PushEvent;
 use yii\queue\Queue;
 
@@ -23,6 +23,7 @@ use yii\queue\Queue;
 class Panel extends \yii\debug\Panel implements ViewContextInterface
 {
     private $_jobs = [];
+
 
     /**
      * @inheritdoc
@@ -60,7 +61,7 @@ class Panel extends \yii\debug\Panel implements ViewContextInterface
         $data['ttr'] = $event->ttr;
         $data['delay'] = $event->delay;
         $data['priority'] = $event->priority;
-        if ($event->job instanceof Job) {
+        if ($event->job instanceof JobInterface) {
             $data['class'] = get_class($event->job);
             $data['properties'] = [];
             foreach (get_object_vars($event->job) as $property => $value) {
@@ -96,7 +97,7 @@ class Panel extends \yii\debug\Panel implements ViewContextInterface
     {
         return Yii::$app->view->render('summary', [
             'url' => $this->getUrl(),
-            'count' => count($this->data['jobs']),
+            'count' => isset($this->data['jobs']) ? count($this->data['jobs']) : 0,
         ], $this);
     }
 
@@ -105,7 +106,7 @@ class Panel extends \yii\debug\Panel implements ViewContextInterface
      */
     public function getDetail()
     {
-        $jobs = $this->data['jobs'];
+        $jobs = isset($this->data['jobs']) ? $this->data['jobs'] : [];
         foreach ($jobs as &$job) {
             $job['status'] = 'unknown';
             /** @var Queue $queue */

@@ -33,6 +33,7 @@ class Behavior extends \yii\base\Behavior
      */
     public $owner;
 
+
     /**
      * @inheritdoc
      */
@@ -52,7 +53,8 @@ class Behavior extends \yii\base\Behavior
         if ($event->job instanceof \Closure) {
             $serializer = new Serializer();
             $serialized = $serializer->serialize($event->job);
-            $event->job = new Job(['serialized' => $serialized]);
+            $event->job = new Job();
+            $event->job->serialized = $serialized;
         }
     }
 }

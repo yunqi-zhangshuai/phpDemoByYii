@@ -30,6 +30,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
             'yii\\queue\\file\\' => 15,
             'yii\\queue\\db\\' => 13,
             'yii\\queue\\beanstalk\\' => 20,
+            'yii\\queue\\amqp_interop\\' => 23,
             'yii\\queue\\amqp\\' => 15,
             'yii\\queue\\' => 10,
             'yii\\httpclient\\' => 15,
@@ -116,7 +117,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         ),
         'yii\\redis\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-redis',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-redis/src',
         ),
         'yii\\queue\\sync\\' => 
         array (
@@ -142,6 +143,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-queue/src/drivers/beanstalk',
         ),
+        'yii\\queue\\amqp_interop\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-queue/src/drivers/amqp_interop',
+        ),
         'yii\\queue\\amqp\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-queue/src/drivers/amqp',
@@ -152,11 +157,11 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         ),
         'yii\\httpclient\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-httpclient',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-httpclient/src',
         ),
         'yii\\gii\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-gii',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-gii/src',
         ),
         'yii\\faker\\' => 
         array (

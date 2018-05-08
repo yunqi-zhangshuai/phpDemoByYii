@@ -10,12 +10,10 @@ namespace yii\queue;
 /**
  * Interface Job
  *
+ * @deprecated Will be removed in 2.1.0. Use JobInterface instead of Job.
+ *
  * @author Roman Zhuravlev <zhuravljov@gmail.com>
  */
-interface Job
+interface Job extends JobInterface
 {
-    /**
-     * @param Queue $queue which pushed and is handling the job
-     */
-    public function execute($queue);
 }

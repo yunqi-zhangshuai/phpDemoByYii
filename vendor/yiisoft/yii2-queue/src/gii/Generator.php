@@ -8,10 +8,10 @@
 namespace yii\queue\gii;
 
 use Yii;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\gii\CodeFile;
-use yii\queue\Job;
-use yii\queue\RetryableJob;
+use yii\queue\JobInterface;
+use yii\queue\RetryableJobInterface;
 
 /**
  * This generator will generate a job.
@@ -24,7 +24,8 @@ class Generator extends \yii\gii\Generator
     public $properties;
     public $retryable = false;
     public $ns = 'app\jobs';
-    public $baseClass = Object::class;
+    public $baseClass = BaseObject::class;
+
 
     /**
      * @inheritdoc
@@ -81,7 +82,7 @@ class Generator extends \yii\gii\Generator
         return array_merge(parent::hints(), [
             'jobClass' => 'This is the name of the Job class to be generated, e.g., <code>SomeJob</code>.',
             'properties' => 'Job object property names. Separate multiple properties with commas or spaces, e.g., <code>prop1, prop2</code>.',
-            'retryable' => 'Job object will implement <code>RetryableJob</code> interface.',
+            'retryable' => 'Job object will implement <code>RetryableJobInterface</code> interface.',
             'ns' => 'This is the namespace of the Job class to be generated.',
             'baseClass' => 'This is the class that the new Job class will extend from.',
         ]);
@@ -114,12 +115,12 @@ class Generator extends \yii\gii\Generator
         $params['baseClass'] = '\\' . ltrim($this->baseClass, '\\');
         $params['interfaces'] = [];
         if (!$this->retryable) {
-            if (!is_a($this->baseClass, Job::class, true)) {
-                $params['interfaces'][] = '\\' . Job::class;
+            if (!is_a($this->baseClass, JobInterface::class, true)) {
+                $params['interfaces'][] = '\\' . JobInterface::class;
             }
         } else {
-            if (!is_a($this->baseClass, RetryableJob::class, true)) {
-                $params['interfaces'][] = '\\' . RetryableJob::class;
+            if (!is_a($this->baseClass, RetryableJobInterface::class, true)) {
+                $params['interfaces'][] = '\\' . RetryableJobInterface::class;
             }
         }
         $params['properties'] = array_unique(preg_split('/[\s,]+/', $this->properties, -1, PREG_SPLIT_NO_EMPTY));
@@ -132,6 +133,11 @@ class Generator extends \yii\gii\Generator
         return [$jobFile];
     }
 
+    /**
+     * Validates the job class.
+     *
+     * @param string $attribute job attribute name.
+     */
     public function validateJobClass($attribute)
     {
         if ($this->isReservedKeyword($this->$attribute)) {
@@ -142,7 +148,7 @@ class Generator extends \yii\gii\Generator
     /**
      * Validates the namespace.
      *
-     * @param string $attribute Namespace variable.
+     * @param string $attribute Namespace attribute name.
      */
     public function validateNamespace($attribute)
     {
