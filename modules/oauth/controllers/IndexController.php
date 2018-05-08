@@ -15,9 +15,11 @@ class IndexController extends BaseController
         return $this->render('index');
     }
 
+    /**
+     * @return \yii\web\Response
+     */
     public function actionMakeoauthurl()
     {
-
         return $this->redirect(['oauth/oauth','sign'=>sha1(uniqid() . $this->token),'']);
 
     }
