@@ -13,8 +13,13 @@ class IndexController extends BaseController
      */
     public function actionIndex()
     {
-
-        return $this->render('index');
+        $client = new \swoole_client(SWOOLE_SOCK_TCP,SWOOLE_SOCK_SYNC);
+        $client->connect('127.0.0.1',9002) || exit('链接错误!');
+        $client->send('我是从modules进入的');
+        $message = $client->recv();
+        $client->close();
+        echo $message;
+        //return $this->render('index');
     }
 
 

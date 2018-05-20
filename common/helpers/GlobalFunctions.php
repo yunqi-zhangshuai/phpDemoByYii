@@ -41,11 +41,12 @@ if (!function_exists('t')) {
 }
 
 if (!function_exists('user')) {
+
+
     /**
-     * User组件或者(设置|返回)identity属性
-     *
-     * @param null|string|array $attribute idenity属性
-     * @return \yii\web\User|string|array
+     * @param null $attribute
+     * @return \yii\web\User
+     * @throws Throwable
      */
     function user($attribute = null)
     {
