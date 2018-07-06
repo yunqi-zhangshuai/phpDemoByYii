@@ -12,9 +12,9 @@ namespace app\common\helpers;
 class Run
 {
 
-    public function run($data)
+    public function run()
     {
-        return '更改12345678995232' . $data . PHP_EOL;
+
     }
 
 }

@@ -79,6 +79,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
+            'PhpAmqpLib\\' => 11,
         ),
         'M' => 
         array (
@@ -273,6 +274,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
+        ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
         ),
         'MyCLabs\\Enum\\' => 
         array (

@@ -6,12 +6,16 @@
  * Time: 下午12:04
  */
 
-namespace app\common\helpers;
+namespace app\common\server;
 
 use \Swoole\Server;
 
-
-class BackendServer
+/**
+ * tcp 服务
+ * Class TcpServer
+ * @package app\common\server
+ */
+class TcpServer
 {
     private $_server;
 
@@ -83,8 +87,14 @@ class BackendServer
     }
 
 
-    //投递
-    public function OnTask(Server $server, $taskId, $fromId, $data)
+    /**
+     * @param Server $server
+     * @param int $task_id 任务ID，由swoole扩展内自动生成，用于区分不同的任务。$task_id和$src_worker_id组合起来才是全局唯一的，
+     * 不同的worker进程投递的任务ID可能会有相同
+     * @param int $src_worker_id 来自于哪个worker进程
+     * @param mixed $data 是任务的内容
+     */
+    public function OnTask(Server $server, int $task_id, int $src_worker_id, $data)
     {
 
     }

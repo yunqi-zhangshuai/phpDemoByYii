@@ -13,6 +13,8 @@ class IndexController extends BaseController
      */
     public function actionIndex()
     {
+
+
         var_dump($_SERVER);die;
        /* $client = new \swoole_client(SWOOLE_SOCK_TCP,SWOOLE_SOCK_SYNC);
         $client->connect('127.0.0.1',9002) || exit('链接错误!');
