@@ -60,9 +60,9 @@ class Vote extends \yii\db\ActiveRecord
     static function getTodayVote($id)
     {
          $data = self::find()->select('vote_object')
-                    ->where(['vote_user' => (int)$id , 'vote_date' => date('Y-m-d')])
-                    ->asArray()
-                    ->all();
+                            ->where(['vote_user' => (int)$id , 'vote_date' => date('Y-m-d')])
+                            ->asArray()
+                            ->all();
          if (!$data) return false;
          return ArrayHelper::getColumn($data,"vote_object");
 
