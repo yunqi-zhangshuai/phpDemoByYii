@@ -16,6 +16,10 @@ require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/config/console.php');
 
+require  (__DIR__ . '/config/laravel_db.php');
+
+
+
 $application = new yii\console\Application($config);
 $exitCode = $application->run();
 exit($exitCode);
