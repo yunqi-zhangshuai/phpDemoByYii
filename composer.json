@@ -26,7 +26,9 @@
         "symfony/var-dumper": "^3.4",
         "guzzlehttp/guzzle": "^6.3",
         "php-amqplib/php-amqplib": "^2.7",
-        "illuminate/database": "^5.6"
+        "illuminate/database": "^5.6",
+        "yiisoft/yii2-shell": "^2.0",
+        "psy/psysh": "@stable"
 
     },
     "require-dev": {

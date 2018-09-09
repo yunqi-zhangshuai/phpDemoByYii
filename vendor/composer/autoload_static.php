@@ -11,14 +11,15 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '626dcc41390ebdaa619faa02d99943b0' => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib/common/customFunctions.php',
+        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'd78f14d28e652bfd3ec214223c96ad70' => __DIR__ . '/../..' . '/common/helpers/GlobalFunctions.php',
     );
 
@@ -26,6 +27,7 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\shell\\' => 10,
             'yii\\redis\\' => 10,
             'yii\\queue\\sync\\' => 15,
             'yii\\queue\\sqs\\' => 14,
@@ -53,6 +55,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             'cebe\\markdown\\' => 14,
         ),
+        'X' => 
+        array (
+            'XdgBaseDir\\' => 11,
+        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -76,9 +82,11 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         ),
         'P' => 
         array (
+            'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'PhpParser\\' => 10,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
             'PhpAmqpLib\\' => 11,
         ),
@@ -125,6 +133,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
+        ),
+        'yii\\shell\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-shell',
         ),
         'yii\\redis\\' => 
         array (
@@ -208,6 +220,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
         ),
+        'XdgBaseDir\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
+        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
@@ -268,6 +284,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         array (
             0 => __DIR__ . '/..' . '/symfony/browser-kit',
         ),
+        'Psy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
@@ -279,6 +299,10 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
@@ -365,6 +389,17 @@ class ComposerStaticInit54a8c88cca8dbafb84dc3cbb972e2534
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+        ),
+        'J' => 
+        array (
+            'JakubOnderka\\PhpConsoleHighlighter' => 
+            array (
+                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
+            ),
+            'JakubOnderka\\PhpConsoleColor' => 
+            array (
+                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
         ),
         'H' => 
