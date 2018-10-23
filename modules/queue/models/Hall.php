@@ -153,8 +153,11 @@ class Hall extends \yii\db\ActiveRecord
 
     public static function getDb()
     {
-        return Yii::$app->get('db_hd');
+        Yii::$app->db->createCommand('select * from yii2hd.address')->execute();
+        return Yii::$app->get('db');
+       // Hall::find()->select('*')->asArray()->all();
     }
+
 
 
 }
