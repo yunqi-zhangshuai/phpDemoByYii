@@ -31,5 +31,4 @@ tests/_support/_generated
 .phpintel
 /commands
 /config
-runtime
-/logs
+/logs/*
