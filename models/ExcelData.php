@@ -1,5 +1,6 @@
 <?php
 /**
+ * desc 简单读取csv,xls为数组
  * Created by PhpStorm.
  * User: zhangshuai
  * Date: 18-4-14
@@ -33,10 +34,10 @@ class ExcelData extends IOFactory
 
     public static $filter;
 
-    public  function __construct($star = null,$end=null)
+    public function __construct($star = null, $end = null)
     {
-        if($star && $end) {
-            self::$filter = new ExcelFilter($star,$end);
+        if ($star && $end) {
+            self::$filter = new ExcelFilter($star, $end);
 
         }
     }
@@ -49,13 +50,13 @@ class ExcelData extends IOFactory
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      */
-    public function ToArray($file_name ,$reade_from = 'all')
+    public function ToArray($file_name, $reade_from = 'all')
     {
         if (!file_exists($file_name)) {
             throw new \ErrorException('文件不存在!');
         }
         //获取文件类型
-        $file_type = ucfirst(pathinfo($file_name,PATHINFO_EXTENSION));
+        $file_type = ucfirst(pathinfo($file_name, PATHINFO_EXTENSION));
 
         if (!in_array($file_type, self::$file_type, true)) {
             throw new \ErrorException('不支持的文件类型!');
@@ -64,13 +65,12 @@ class ExcelData extends IOFactory
         if ($reade_from === 'all') {
             return $reader->load($file_name)->getSheet(0)->toArray(null, true, true, true);
         }
-         $reader = $reader->setReadFilter(self::$filter)->load($file_name)->getSheet(0);
-          $pRange = 'A' .self::$filter->startRow .':' .$reader->getHighestColumn() . self::$filter->endRow;
-         return   $reader->rangeToArray($pRange, true, true, true);
+        $reader = $reader->setReadFilter(self::$filter)->load($file_name)->getSheet(0);
+        $pRange = 'A' . self::$filter->startRow . ':' . $reader->getHighestColumn() . self::$filter->endRow;
+        return $reader->rangeToArray($pRange, true, true, true);
 
 
     }
-
 
 
     /**
