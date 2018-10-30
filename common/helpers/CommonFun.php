@@ -82,77 +82,7 @@ class CommonFun
         return $rtn;
     }
 
-    /**
-     * php通过代理模拟curl请求
-     *
-     * @param string $url 请求的url
-     * @param string $method 请求的方法, 默认POST
-     * @param array $data 请求传递的数据
-     * @param array $header 请求设置的头信息
-     * @param int $head 是否打印头信息
-     * @param int $body 是否打印body信息
-     * @param int $timeout 设置超时时间
-     * @param string $error 错误信息
-     *
-     * @return string | bool
-     */
-    static public function proxyCurl($url, $method = "POST", $data = array(), $header = array(), $head = 0, $body = 0, $timeout = 30, &$error = '')
-    {
-        $ch = curl_init();
-        //设置代理
-        if (strpos($url, 'https') === 0) {
-            curl_setopt($ch, CURLOPT_PROXY, '10.26.115.166:443');
-            $url = str_replace('https://', 'http://', $url);
-        } else {
-            curl_setopt($ch, CURLOPT_PROXY, '10.26.115.166:8080');
-        }
 
-        curl_setopt($ch, CURLOPT_URL, $url);
-        if (strpos($url, "https") !== false) {
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            if (isset($_SERVER['HTTP_USER_AGENT'])) {
-                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-            }
-        }
-        if (!empty($header)) {
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        }
-        switch ($method) {
-            case 'POST':
-                if (is_array($data)) {
-                    $data = http_build_query($data);
-                }
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                break;
-            case 'GET':
-                break;
-            case 'PUT':
-                curl_setopt($ch, CURLOPT_PUT, 1);
-                curl_setopt($ch, CURLOPT_INFILE, '');
-                curl_setopt($ch, CURLOPT_INFILESIZE, 10);
-                break;
-            case 'DELETE':
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-                break;
-            default:
-                break;
-        }
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, $head);
-        curl_setopt($ch, CURLOPT_NOBODY, $body);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-
-        $rtn = curl_exec($ch); //获得返回
-        if (curl_errno($ch)) {
-            $error = curl_error($ch);
-            return false;
-        }
-        curl_close($ch);
-        return $rtn;
-    }
 
     /**
      * 隐藏手机号
@@ -249,24 +179,7 @@ class CommonFun
         return $decode;
     }
 
-    /**
-     * 查询号码归属地
-     *
-     * @param $mobile
-     * @return mixed
-     */
-    public static function getArea($mobile)
-    {
 
-        $url = "http://api.buslive.cn/mobile?phone={$mobile}";
-
-        $_area = CommonFun::curl($url, 'GET');
-        $area = array();
-        if ($_area) {
-            $area = json_decode($_area, true);
-        }
-        return $area;
-    }
 
     /**
      * 十进制转三十四进制
@@ -300,32 +213,7 @@ class CommonFun
         return (float)sprintf('%.0f', (floatval($t1) + floatval($t2)) * 1000);
     }
 
-    /**
-     * 过滤敏感字
-     * @param $content
-     * @return mixed
-     */
-    public static function filter($content)
-    {
-        $url = 'http://y.buslive.cn/tools/filter/filter.php';
-        $res = self::curl($url, "POST", ['message' => $content]);
-        $res = Json::decode($res, true);
-        return ArrayHelper::getValue($res, 'message', '');
-    }
 
-    /**
-     * 将数组转换成json,支持jsonp
-     * @param $value
-     * @return string
-     */
-    public static function toJson($value)
-    {
-        if (isset($_GET['callback'])) {
-            return htmlentities(strip_tags($_GET['callback'])) . '(' . json_encode($value) . ')';
-        } else {
-            return json_encode($value);
-        }
-    }
 
     /**
      * 批量取参数
@@ -344,19 +232,7 @@ class CommonFun
         return $params;
     }
 
-    public static function checkHost()
-    {
-        if (in_array($_SERVER['HTTP_HOST'] , [
-            '1892139.com',
-            'y.buptinfo.com',
-            'y.buslive.cn',
-            'y.1892139.cn',
-        ])) {
-            return true;
-        }
 
-        header('HTTP/1.1 403 Forbidden'); exit;
-    }
     /**
      * 最简单的XML转数组
      * @param string $xmlstring XML字符串
