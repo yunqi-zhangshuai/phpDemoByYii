@@ -1,8 +1,0 @@
-2018-09-18 19:29:17 [-][-][-][info][yii\db\Command::execute] select * from yii2hd.address
-    in /usr/local/nginx/html/basic/modules/queue/models/Hall.php:156
-    in /usr/local/nginx/html/basic/commands/CodeController.php:19
-2018-09-18 19:29:17 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=127.0.0.1;dbname=yii2hd
-    in /usr/local/nginx/html/basic/modules/queue/models/Hall.php:156
-    in /usr/local/nginx/html/basic/commands/CodeController.php:19
-2018-09-18 19:29:17 [-][-][-][info][yii\db\Command::query] SELECT * FROM `nmg_bestgood_hall`
-    in /usr/local/nginx/html/basic/commands/CodeController.php:19
