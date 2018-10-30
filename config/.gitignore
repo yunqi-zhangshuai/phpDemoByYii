@@ -11,4 +11,4 @@ gen
 *
 !.gitignore
 !web.php
-!params.php
+!modules.php
